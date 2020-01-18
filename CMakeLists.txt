@@ -22,12 +22,6 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_SOURCE_DIR}/cmake")
 include(FetchLib)
 
-fetch_lib(boost
-  URL "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.gz"
-  HASH SHA256=c66e88d5786f2ca4dbebb14e06b566fb642a1a6947ad8cc9091f9f445134143f
-  BUILD_SCRIPT lib/boost/CMakeLists.txt
-)
-
 fetch_lib(googletest
   URL "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
   HASH SHA256=9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb
