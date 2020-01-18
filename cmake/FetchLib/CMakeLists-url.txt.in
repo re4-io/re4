@@ -13,18 +13,17 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-cmake_minimum_required(VERSION 3.6)
+cmake_minimum_required(VERSION 3.10)
 
-project(@FL_PROJECT_NAME@)
+project(@FL_NAME@-fetch)
 
 include(ExternalProject)
 
 ExternalProject_Add(@FL_NAME@
     URL "@FL_URL@"
-    URL_HASH @FL_HASH@
+    URL_HASH @FL_URL_HASH@
     SOURCE_DIR "@FL_SOURCE_PROJECT_DIR@"
     TLS_VERIFY ON
-    DOWNLOAD_NO_PROGRESS ON
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
