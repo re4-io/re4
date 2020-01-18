@@ -28,7 +28,7 @@ fetch_lib(googletest
 )
 
 add_library(${PROJECT_NAME}
-    source/Re4.cpp
+  source/Re4.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC include)
