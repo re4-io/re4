@@ -24,7 +24,7 @@ include(FetchLib)
 
 fetch_lib(googletest
   URL "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
-  HASH SHA256=9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb
+  URL_HASH SHA256=9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb
 )
 
 add_library(${PROJECT_NAME}
