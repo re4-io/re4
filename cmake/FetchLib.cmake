@@ -45,28 +45,28 @@ function(fetch_lib FL_NAME)
   configure_file("${FL_CMAKELISTS}" "${FL_PROJECT_DIR}/CMakeLists.txt" @ONLY)
 
   # Download project generate step
-  #execute_process(
-  #  COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
-  #  WORKING_DIRECTORY "${FL_PROJECT_DIR}"
-  #  RESULT_VARIABLE RESULT
-  #)
-  #if (RESULT)
-  #  message(FATAL_ERROR "Generate step for ${FL_PROJECT_DIR} failed")
-  #endif()
+  execute_process(
+    COMMAND "${CMAKE_COMMAND}" -G "${CMAKE_GENERATOR}" .
+    WORKING_DIRECTORY "${FL_PROJECT_DIR}"
+    RESULT_VARIABLE RESULT
+  )
+  if (RESULT)
+    message(FATAL_ERROR "Generate step for ${FL_PROJECT_DIR} failed")
+  endif()
 
   # Download project build step
-  #execute_process(
-  #  COMMAND "${CMAKE_COMMAND}" --build .
-  #  WORKING_DIRECTORY "${FL_PROJECT_DIR}"
-  #  RESULT_VARIABLE RESULT
-  #)
-  #if (RESULT)
-  #  message(FATAL_ERROR "Build step for ${DD_PROJECT_DIR} failed")
-  #endif()
+  execute_process(
+    COMMAND "${CMAKE_COMMAND}" --build .
+    WORKING_DIRECTORY "${FL_PROJECT_DIR}"
+    RESULT_VARIABLE RESULT
+  )
+  if (RESULT)
+    message(FATAL_ERROR "Build step for ${FL_PROJECT_DIR} failed")
+  endif()
  
-  #if (DEFINED FL_BUILD_SCRIPT)
-  #  file(COPY "${FL_BUILD_SCRIPT}" DESTINATION "${FL_SOURCE_PROJECT_DIR}")
-  #endif()
+  if (DEFINED FL_BUILD_SCRIPT)
+    file(COPY "${FL_BUILD_SCRIPT}" DESTINATION "${FL_SOURCE_PROJECT_DIR}")
+  endif()
 
-  #add_subdirectory("${FL_SOURCE_PROJECT_DIR}")
+  add_subdirectory("${FL_SOURCE_PROJECT_DIR}")
 endfunction()
