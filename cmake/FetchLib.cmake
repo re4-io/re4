@@ -17,9 +17,15 @@ set(FL_CMAKELISTS_URL "${CMAKE_CURRENT_LIST_DIR}/FetchLib/CMakeLists-url.txt.in"
 set(FL_CMAKELISTS_GIT "${CMAKE_CURRENT_LIST_DIR}/FetchLib/CMakeLists-git.txt.in")
 
 function(fetch_lib FL_NAME)
-  set(FL_PREFIX             "${CMAKE_CURRENT_SOURCE_DIR}/lib")
-  set(FL_PROJECT_DIR        "${FL_PREFIX}/${FL_NAME}-fetch")
-  set(FL_SOURCE_PROJECT_DIR "${FL_PREFIX}/${FL_NAME}")
+  set(FL_PROJECT_DIR        "${CMAKE_CURRENT_BINARY_DIR}/${FL_NAME}-fetch")
+  set(FL_SOURCE_PROJECT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/${FL_NAME}")
+
+  if(EXISTS "${FL_SOURCE_PROJECT_DIR}")
+    message(STATUS "Directory \"${FL_SOURCE_PROJECT_DIR}\" already exists.")
+    message(STATUS "Skipping fetching \"${FL_NAME}\"")
+    add_subdirectory("${FL_SOURCE_PROJECT_DIR}")
+    return()
+  endif()
 
   execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory "${FL_PROJECT_DIR}")
 
