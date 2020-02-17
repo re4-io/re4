@@ -42,8 +42,10 @@ add_library(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 target_include_directories(${PROJECT_NAME} PRIVATE source)
 
+target_link_libraries(${PROJECT_NAME} PUBLIC date tz)
+
 add_executable(${PROJECT_NAME}-test
   test/Test.cpp
 )
 
-target_link_libraries(${PROJECT_NAME}-test gtest_main)
+target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME} gtest_main)
