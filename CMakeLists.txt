@@ -19,7 +19,7 @@ project(re4 VERSION 0.0.0)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_SOURCE_DIR}/cmake")
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(FetchLib)
 
 fetch_lib(googletest
