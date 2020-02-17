@@ -27,6 +27,9 @@ fetch_lib(googletest
   URL_HASH SHA256=9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb
 )
 
+set(USE_SYSTEM_TZ_DB ON CACHE BOOL "Use the operating system's timezone database" FORCE)
+set(BUILD_TZ_LIB ON CACHE BOOL "Build/install of TZ library" FORCE)
+
 fetch_lib(date
   GIT_REPOSITORY "https://github.com/re4-io/date.git"
   GIT_TAG c8d311f6f1b9ede6f66d510012da8002ef07a895
